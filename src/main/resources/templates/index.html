@@ -5,10 +5,26 @@
     <title>Enumerable Planets</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
     <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
+    <link rel="stylesheet" th:href="@{style.css}" />
 </head>
 <body>
 <h1>Pick a planet:</h1>
 
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Planet:</th>
+            <th>Year Length in Days:</th>
+            <th>Equatorial Radius (nearest KM):</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="planet : ${planets}">
+            <td th:text="${planet.displayName}"></td>
+            <td th:text="${planet.yearLength}"></td>
+            <td th:text="${planet.radius}"></td>
+        </tr>
+    </tbody>
+</table>
 </body>
 </html>
